@@ -1,0 +1,6 @@
+[submodule "gmd22-backend"]
+	path = gmd22-backend
+	url = https://github.com/sbelalouibertot/gmd22-backend
+[submodule "gmd22-frontend"]
+	path = gmd22-frontend
+	url = https://github.com/sbelalouibertot/gmd22-frontend
