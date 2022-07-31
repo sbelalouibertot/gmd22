@@ -1,4 +1,4 @@
-(🇬🇧 English details available in the submodules)
+🇬🇧 _English details in the submodules_
 
 # Qu’est-ce que le projet GMD-22 ?
 Son but est simple :
@@ -67,10 +67,7 @@ Une fois hébergée, l’application répond à quasiment tous les critères san
 Les builds du front et du back sont exécutés sur une [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi), à travers des conteneurs [Docker](https://www.docker.com/). La raspberry pi est ensuite reliée au réseau local et redirigée sur les ports de mon routeur, pour etre accessible n'importe où, sans être connecté en wifi. 
 
 Le déploiement est réalisé via [un script SSH](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/deploy.sh).
-
 ![raspberry-pi](https://user-images.githubusercontent.com/79903008/182044595-ad7df8db-156d-45f4-a5d8-5ba7fad0e881.png)
-
-
 
 ## Quelle solutions techniques ?
 Les bibliothèques et frameworks utilisés sont axés autour de l’écosystème **Javascript**, et de sa surcouche [Typescript](https://www.typescriptlang.org/). 
