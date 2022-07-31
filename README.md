@@ -137,5 +137,6 @@ J'ai également réalisé des maquettes Figma en m'inspirant de templates exista
 
 J'ai ensuite pu en déduire : 
 - Le design system
+- Les composants à créer
 - Le routing
 - Les queries & mutations à développer côté back-end
