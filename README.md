@@ -17,13 +17,14 @@ Elle est uniquement destinée à mon utilisation personnelle.
 ## À quoi ça ressemble ?
 
 La page d'accueil, les recettes proposées et le planning 👉 
-![Sans titre (5)](https://user-images.githubusercontent.com/79903008/182024591-b50b21fb-d56d-46e8-a2d0-136126f66bff.png)
+![Sans titre (9)](https://user-images.githubusercontent.com/79903008/182037069-bf3e1e85-1ac5-49f9-b4e9-e80c8a1e0e07.png)
 
-La liste de courses générée et l'assistant de préparation 👉
-![Sans titre (6)](https://user-images.githubusercontent.com/79903008/182024649-ccc7965c-9d47-494e-9f20-bb3225dfad5a.png)
+La liste de courses, la page d'un ingrédient et la page d'une recette 👉
+![Sans titre (11)](https://user-images.githubusercontent.com/79903008/182038744-3f3a75e4-368b-4e6f-8528-21c3a0efe048.png)
 
-L'écran de fin 👉
-![Sans titre (7)](https://user-images.githubusercontent.com/79903008/182025043-b0d0d8fa-399b-42da-9868-61b3f769a80d.png)
+L'assistant de préparation 👉
+![Sans titre (10)](https://user-images.githubusercontent.com/79903008/182038738-d6efe6ed-d8b5-451b-abe7-24f04103cada.png)
+
 
 
 ## Mais, c’est une application native ?
