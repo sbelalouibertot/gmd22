@@ -3,20 +3,23 @@
 # Qu’est-ce que le projet GMD-22 ?
 Son but est simple :
 Permettre à l’utilisateur de manger plus **diversifié** et de façon régulière, en simplifiant la préparation de **recettes de cuisines**.
+Elle est uniquement destinée à mon utilisation personnelle.
 
 À intervalles de temps réguliers (toutes les 3 semaines actuellement), l’application s’occupe de :
 - Proposer à l’utilisateur des recettes de cuisine 👨‍🍳
-- Remplacer certaines recettes si l’utilisateur le souhaite 🔁
 - Générer la liste de courses associée 🛒
 - S’occuper de la planification des événements 📆
-- Alerter l’utilisateur les jours clés 🚨
-- Assister l’utilisateur lors de la préparation 🤝
 
-Elle est uniquement destinée à mon utilisation personnelle.
 
-## À quoi ça ressemble ?
+### La page d'accueil, les recettes proposées et le planning 👉 
 
-La page d'accueil, les recettes proposées et le planning 👉 
+L'utilisateur a accès **aux infos clés** sur la première page: prochaine recette prévue, état d'avancement des étapes, aperçu des paramètres.
+Les étapes représentent ici des évènements, et peuvent être de différents types : début/fin de période, courses, préparation d'une recette...
+
+Sur la seconde page, il peut ensuite avoir un aperçu des **recettes actuelles** de la période, et les remplacer à tout moment par une autre recette aléatoire. La liste de courses sera ensuite regénérée automatiquement.
+
+La troisième page permet d'afficher les **évènements générés** de façon détaillée. Arbitrairement, les courses sont le vendredi et la préparation de recettes le lundi, mais il est possible de modifier ces dates via un drag and drop. L'utilisateur recevra une notification push le matin des jours contenant des évènements.
+
 ![Sans titre (9)](https://user-images.githubusercontent.com/79903008/182037069-bf3e1e85-1ac5-49f9-b4e9-e80c8a1e0e07.png)
 
 La liste de courses, la page d'un ingrédient et la page d'une recette 👉
@@ -24,7 +27,6 @@ La liste de courses, la page d'un ingrédient et la page d'une recette 👉
 
 L'assistant de préparation 👉
 ![Sans titre (10)](https://user-images.githubusercontent.com/79903008/182038738-d6efe6ed-d8b5-451b-abe7-24f04103cada.png)
-
 
 
 ## Mais, c’est une application native ?
