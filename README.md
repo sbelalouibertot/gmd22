@@ -5,12 +5,12 @@ Son but est simple :
 Permettre à l’utilisateur de manger plus **diversifié** et de façon régulière, en simplifiant la préparation de **recettes de cuisines**.
 
 À intervalles de temps réguliers (toutes les 3 semaines actuellement), l’application s’occupe de :
-- Proposer à l’utilisateur des recettes de cuisine
-- Remplacer certaines recettes si l’utilisateur le souhaite
-- Générer la liste de courses associée
-- S’occuper de la planification des événements
-- Alerter l’utilisateur les jours clés
-- Assister l’utilisateur lors de la préparation 
+- Proposer à l’utilisateur des recettes de cuisine 👨‍🍳
+- Remplacer certaines recettes si l’utilisateur le souhaite 🔁
+- Générer la liste de courses associée 🛒
+- S’occuper de la planification des événements 📆
+- Alerter l’utilisateur les jours clés 🚨
+- Assister l’utilisateur lors de la préparation 🤝
 
 Elle est uniquement destinée à mon utilisation personnelle.
 
@@ -44,9 +44,9 @@ Une fois hébergée, l’application répond à quasiment tous les critères san
 
 ## Quel hébergement ?
 
-Les builds du front et du back sont exécutés sur une [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi), à travers des conteneurs docker. La raspberry pi est ensuite reliée au réseau local et redirigée sur les ports de mon routeur, pour etre accessible n'importe où, sans être connecté en wifi. 
+Les builds du front et du back sont exécutés sur une [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi), à travers des conteneurs [Docker](https://www.docker.com/). La raspberry pi est ensuite reliée au réseau local et redirigée sur les ports de mon routeur, pour etre accessible n'importe où, sans être connecté en wifi. 
 
-Le déploiement est réalisée via [un script SSH](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/deploy.sh).
+Le déploiement est réalisé via [un script SSH](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/deploy.sh).
 
 
 
@@ -68,7 +68,7 @@ Combiné à [Next](https://nextjs.org/), pour la gestion du routing et des resso
 
 Une base de données [PostgreSQL](https://www.postgresql.org/).
 
-Combinée à l’ORM [Prisma](https://www.prisma.io/), pour générer le data model et effectuer des requêtes CRUD très facilement.
+Combinée à l’ORM [Prisma](https://www.prisma.io/), pour générer le data model, gérer les migrations et effectuer des requêtes CRUD très facilement.
 
 Ainsi que [GraphQL](https://graphql.org/), pour avoir une grande souplesse dans la manipulation des données et récupérer uniquement les données nécessaires, sur demande.
 
@@ -78,9 +78,17 @@ Le front et le back étant relié grâce à [Apollo](https://www.apollographql.c
 ### Côté scripts :
 - Une partie est exécutée sur demande de l’utilisateur (ex: Initialiser la base de données et le profil d’un utilisateur par défaut). Ces scripts seront sortis des sources et ne seront pas buildés.
 
-- D’autres devront être lancés régulièrement (ex: Générer des recettes et une liste de courses) et seront ajoutés aux sources, puis exécutés via un Cron.
+- D’autres devront être lancés régulièrement (ex: Générer des recettes et une liste de courses) et seront ajoutés aux sources, puis exécutés via [des crons](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/src/bin/crons.ts).
 
 
 ### Côté données :
 - La quantité de données devant être massive, celles-ci sont [scrappées](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/scrap.ts) depuis certains site internet en libre accès, en identifiant des instructions de cuisine et des aliments à partir d'une page de recette.
 - Il est aussi possible d'ajouter certaines recettes manuellement, en remplissant un [fichier de données](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/data/recipes.data.ts), utilisé lors de l'exécution d'un script de [remplissage de la base de données](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/populateNewDatabase.ts).
+
+
+### Côté tests :
+Jest, pour réaliser : 
+- Des tests d'intégration, sur les services chargés du CRUD et de certains traitements en base
+- Des tests unitaires, sur certaines fonctions ciblées
+
+En [TDD](https://www.all4test.fr/blog-du-testeur/les-3-cles-pour-maitriser-le-test-driven-development-tdd/), dans certains cas.
