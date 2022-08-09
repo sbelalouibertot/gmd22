@@ -12,7 +12,7 @@ Permettre à l’utilisateur de manger plus **diversifié** et de façon réguli
 Un **assistant** a également été développé, pour permettre à l'utilisateur d'optimiser son temps de préparation une fois en cuisine.
 
 La nature même du projet impose que celle-ci soit **utilisable depuis un smartphone**. Il faut par exemple pouvoir cocher les éléments de sa liste de courses au supermarché, avoir un minuteur lors de la préparation d’une recette… Ce n'est pas pour autant une application native, je détaille ce point plus bas ;)
-
+<br></br>
 
 ### La page d'accueil, les recettes proposées et le planning 👉 
 
@@ -61,6 +61,7 @@ Enfin, la bibliothèque [Alertzy](https://alertzy.app/) permet d’envoyer très
 
 Une fois hébergée, l’application répond à quasiment tous les critères sans pour autant être native !
 
+<br></br>
 
 ## Quel hébergement ?
 
@@ -69,11 +70,15 @@ Les builds du front et du back sont exécutés sur une [Raspberry Pi](https://en
 Le déploiement est réalisé via [un script SSH](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/deploy.sh).
 ![raspberry-pi](https://user-images.githubusercontent.com/79903008/182044595-ad7df8db-156d-45f4-a5d8-5ba7fad0e881.png)
 
+<br></br>
+
 ## Quelle solutions techniques ?
 Les bibliothèques et frameworks utilisés sont axés autour de l’écosystème **Javascript**, et de sa surcouche [Typescript](https://www.typescriptlang.org/). 
 Le but étant :
 - De combler le principal inconvénient de JS : sa trop grande permittivité de typage, qui engendre rapidement des failles et de la dette technique
 - D’avoir un langage commun côté client et côté serveur
+
+<br></br>
 
 ### Coté Front, 
 [React](https://reactjs.org/), pour sa légèreté, les possibilités intéressantes des hooks et la gestion performante des rendus de l’application.
@@ -82,7 +87,8 @@ Combiné à [Next](https://nextjs.org/), pour la gestion du routing et des resso
 
 [Styled Components](https://styled-components.com/), pour implémenter facilement un [design system](https://github.com/sbelalouibertot/gmd22-frontend/tree/2e81b9e1917acf394f781c34202b0ea51a91b86a/src/styles/design-system) et une identité visuelle pour l’app, créer des composants génériques avec style conditionnel, utiliser la convention [SASS](https://sass-lang.com/) et améliorer la lisibilité du html.
 
- 
+<br></br>
+
 ### Côté Back, 
 
 Une base de données [PostgreSQL](https://www.postgresql.org/).
@@ -93,12 +99,14 @@ Ainsi que [GraphQL](https://graphql.org/), pour avoir une grande souplesse dans 
 
 Le front et le back étant synchronisés grâce à [Apollo](https://www.apollographql.com/docs/) (Client & Server) pour gagner en temps et simplicité sur l’écriture des requêtes, et synchroniser les types de données.
 
+<br></br>
 
 ### Côté scripts :
 - Une partie est exécutée sur demande de l’utilisateur (ex: Initialiser la base de données et le profil d’un utilisateur par défaut). Ces scripts sont sortis des sources et ne sont pas buildés.
 
 - D’autres doivent être lancés régulièrement (ex: Générer des recettes et une liste de courses) et sont donc ajoutés aux sources, puis exécutés via [des crons](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/src/bin/crons.ts).
 
+<br></br>
 
 ### Côté tests :
 Jest, pour réaliser : 
@@ -107,11 +115,13 @@ Jest, pour réaliser :
 
 En [TDD](https://www.all4test.fr/blog-du-testeur/les-3-cles-pour-maitriser-le-test-driven-development-tdd/), dans certains cas.
 
+<br></br>
 
 ### Côté données :
 - La quantité de données devant être massive, celles-ci sont [scrappées](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/scrap.ts) depuis certains site internet en libre accès, en identifiant des instructions de cuisine et des aliments à partir d'une page de recette.
 - Il est aussi possible d'ajouter certaines recettes manuellement, en remplissant un [fichier de données](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/data/recipes.data.ts), utilisé lors de l'exécution d'un script de [remplissage de la base de données](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/bin/init/populateNewDatabase.ts).
 
+<br></br>
 
 ## Modèle de données
 Le modèle de données peut se représenter d'une manière simplifiée par le schéma ci-dessous. 
@@ -125,6 +135,7 @@ Le modèle de données peut se représenter d'une manière simplifiée par le sc
 
 Pour être appliqué à un modèle de type Postgres, j'ai ensuite créé des tables de jointures : shopping_lists_events, shopping_lists_food, recipes_instructions_food.
 
+<br></br>
 
 ## Maquettage
 
