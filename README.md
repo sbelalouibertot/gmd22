@@ -5,11 +5,13 @@ Son but est simple :
 Permettre à l’utilisateur de manger plus **diversifié** et de façon régulière, en simplifiant la préparation de **recettes de cuisines**.
 
 À intervalles de temps réguliers (toutes les 3 semaines actuellement), l’application s’occupe de :
-- Proposer à l’utilisateur des recettes de cuisine 👨‍🍳
-- Générer la liste de courses associée 🛒
-- S’occuper de la planification des événements 📆
+- Proposer à l’utilisateur des **recettes de cuisine** 👨‍🍳
+- Générer la **liste de courses** associée 🛒
+- S’occuper de la planification des **événements** 📆
 
-Un assistant a également été développé, pour permettre à l'utilisateur d'optimiser son temps de préparation une fois en cuisine.
+Un **assistant** a également été développé, pour permettre à l'utilisateur d'optimiser son temps de préparation une fois en cuisine.
+
+La nature même du projet impose que celle-ci soit **utilisable depuis un smartphone**. Il faut par exemple pouvoir cocher les éléments de sa liste de courses au supermarché, avoir un minuteur lors de la préparation d’une recette… Ce n'est pas pour autant une application native, je détaille ce point plus bas ;)
 
 
 ### La page d'accueil, les recettes proposées et le planning 👉 
@@ -48,8 +50,6 @@ Une fois toutes les étapes terminées, l'utilisateur découvre sa performance !
 
 
 ## Mais, c’est une application native ?
-La nature même du projet impose que celle-ci soit **utilisable depuis un smartphone**. Il faut par exemple pouvoir cocher les éléments de sa liste de courses au supermarché, avoir un minuteur lors de la préparation d’une recette…
-Il n’y a d’ailleurs que très peu d’intérêt à pouvoir l’utiliser depuis un PC 🤔
 
 Il pourrait être judicieux de développer une application native téléchargeable depuis l’Apple Store, mais par soucis de simplicité (process de validation complexe et chronophage, forte dépendance avec la plateforme, coût) je n'ai pas choisi cette possibilité.
 
