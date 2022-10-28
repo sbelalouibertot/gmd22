@@ -1,5 +1,7 @@
 🇬🇧 _English details in the submodules_
 
+Le code est composé d'un [front-end](https://github.com/sbelalouibertot/gmd22-frontend) et d'un [back-end](https://github.com/sbelalouibertot/gmd22-backend).
+
 # Qu’est-ce que le projet GMD-22 ?
 Son but est simple :
 Permettre à l’utilisateur de manger plus **diversifié** et de façon régulière, en simplifiant la préparation de **recettes de cuisines**.
