@@ -126,7 +126,7 @@ En [TDD](https://www.all4test.fr/blog-du-testeur/les-3-cles-pour-maitriser-le-te
 <br></br>
 
 ## Modèle de données
-Le modèle de données peut se représenter d'une manière simplifiée par le schéma ci-dessous. 
+J'ai commencé par créer une représentation simplifié du modèle de données. 
 
 - Chaque utilisateur dispose de plusieurs préférences (comme par exemple la fréquence de génération des périodes).
 - Un évènement généré est toujours liés à un utilisateur et peut être lié à une liste de courses (représente l'action de faire ses courses dans ce cas), ou à plusieurs recettes (= la préparation de plusieurs recettes en parallèle).
@@ -135,7 +135,13 @@ Le modèle de données peut se représenter d'une manière simplifiée par le sc
 ![Capture d’écran 2022-07-31 à 22 33 32](https://user-images.githubusercontent.com/79903008/182044224-1a0c40ce-f4e6-4b16-b81d-3f9999209be7.png)
 
 
-Pour être appliqué à un modèle de type Postgres, j'ai ensuite créé des tables de jointures : shopping_lists_events, shopping_lists_food, recipes_instructions_food.
+Pour être appliqué à un modèle de type Postgres, j'ai ensuite ajouté des tables de jointures : shopping_lists_events, shopping_lists_food, recipes_instructions_food.
+
+Le modèle de données final généré par Prisma est tel que : 
+
+<img width="1098" alt="Capture d’écran 2022-10-28 à 17 09 20" src="https://user-images.githubusercontent.com/79903008/198669947-efb824ec-6d7c-4ce6-adae-3a2547026afd.png">
+
+(aperçu depuis [prismaliser](https://prismaliser.app/))
 
 <br></br>
 
