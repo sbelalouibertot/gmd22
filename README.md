@@ -85,7 +85,7 @@ Le but étant :
 ### Coté Front, 
 [React](https://reactjs.org/), pour sa légèreté, les possibilités intéressantes des hooks et la gestion performante des rendus de l’application.
 
-Combiné à [Next](https://nextjs.org/), pour la gestion du routing et des ressources statiques principalement.
+Combiné à [Next](https://nextjs.org/), pour la gestion des performances, du routing et des ressources statiques principalement.
 
 [Styled Components](https://styled-components.com/), pour implémenter facilement un [design system](https://github.com/sbelalouibertot/gmd22-frontend/tree/2e81b9e1917acf394f781c34202b0ea51a91b86a/src/styles/design-system) et une identité visuelle pour l’app, créer des composants génériques avec style conditionnel, utiliser la convention [SASS](https://sass-lang.com/) et améliorer la lisibilité du html.
 
@@ -156,3 +156,28 @@ J'ai ensuite pu en déduire :
 - Les composants à créer
 - Le routing
 - Les queries & mutations à développer côté back-end
+
+
+## Performances
+
+Il était important pour moi d'avoir une application la plus rapide possible. Ce qui implique d'avoir un [chemin critique de rendu](https://www.codein.fr/blog/le-chemin-critique-du-rendu-comment-ca-marche-performance-web-3-6) de ma page d'accueil le plus court possible et une navigation fluide.
+
+J'ai choisi Next pour plusieurs raisons : 
+- Le pre-rendering de l'HTML est automatique
+- Le prefetch des pages est automatique
+- Il utilise webpack et gère notamment: 
+  - Le découpage optimisé des bundles
+  - Les imports des images, et celles-ci sont par défaut lazy loadées
+
+Je n'ai pas choisi d'utiliser du pre-rendering de données car : 
+- J'accède toujours à mon application depuis un unique point d'entrée (la page d'accueil)
+- La page d'accueil contient des données qui change très souvent (notamment les prochaines recettes), ce qui est incompatible avec le [pré-rendu statique](https://nextjs.org/docs/basic-features/data-fetching/get-static-props)
+
+Je prèfère ainsi afficher la première page le plus rapidement possible puis afficher des skeletons sur les zones en attente de réception des données. 
+
+J'ai aussi cherché à réduire au maximum la taille des bundles, en évitant le code mort notamment. Grâce à des plugins comme [Next Bundle Analyze](https://daily-dev-tips.com/posts/exploring-the-nextjs-bundle-analyzer/), j'ai pu avoir une représentation des bundles les plus gourmands, ce qui a permis de : 
+- Réaliser des imports minimalistes quand c'est possible (ex : 'import mapValues from ‘lodash/mapValues’' au lieu de import {mapValues} from ‘lodash’)
+- Charger les libs en lazy loading dans le cas contraire
+
+<img width="1510" alt="Capture d’écran 2022-11-13 à 23 18 37" src="https://user-images.githubusercontent.com/79903008/201547372-6cc1a4f5-b60a-4519-b76c-6a5fc3b01e52.png">
+
