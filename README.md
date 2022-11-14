@@ -163,21 +163,20 @@ J'ai ensuite pu en déduire :
 Il était important pour moi d'avoir une application la plus rapide possible. Ce qui implique d'avoir un [chemin critique de rendu](https://www.codein.fr/blog/le-chemin-critique-du-rendu-comment-ca-marche-performance-web-3-6) de ma page d'accueil le plus court possible et une navigation fluide.
 
 J'ai choisi Next pour plusieurs raisons : 
-- Le pre-rendering de l'HTML est automatique
-- Le prefetch des pages est automatique
-- Il utilise webpack et gère notamment: 
+- Le pre-rendering côté serveur de l'HTML initial est automatique
+- Le prefetch de tous les liens de la page courante est automatique
+- Next utilise webpack et gère notamment: 
   - Le découpage optimisé des bundles
-  - Les imports des images, et celles-ci sont par défaut lazy loadées
+  - Les imports des images, qui sont par défaut lazy loadées
 
-Je n'ai pas choisi d'utiliser du pre-rendering de données car : 
-- J'accède toujours à mon application depuis un unique point d'entrée (la page d'accueil)
-- La page d'accueil contient des données qui change très souvent (notamment les prochaines recettes), ce qui est incompatible avec le [pré-rendu statique](https://nextjs.org/docs/basic-features/data-fetching/get-static-props)
-
-Je prèfère ainsi afficher la première page le plus rapidement possible puis afficher des skeletons sur les zones en attente de réception des données. 
-
-J'ai aussi cherché à réduire au maximum la taille des bundles, en évitant le code mort notamment. Grâce à des plugins comme [Next Bundle Analyze](https://daily-dev-tips.com/posts/exploring-the-nextjs-bundle-analyzer/), j'ai pu avoir une représentation des bundles les plus gourmands, ce qui a permis de : 
-- Réaliser des imports minimalistes quand c'est possible (ex : 'import mapValues from ‘lodash/mapValues’' au lieu de import {mapValues} from ‘lodash’)
-- Charger les libs en lazy loading dans le cas contraire
+J'ai dans un premier temps cherché à réduire au maximum la taille des bundles, en évitant le code mort. Des plugins comme [Next Bundle Analyze](https://daily-dev-tips.com/posts/exploring-the-nextjs-bundle-analyzer/), permettent d'avoir une représentation des bundles les plus gourmands, ce qui a permis de : 
+- Privilégier des imports minimalistes quand c'est possible (ex : `import mapValues from ‘lodash/mapValues’` au lieu de `import {mapValues} from ‘lodash’` )
+- Dans le cas contraire, charger les libs volumineuses (ex: framer-motion) en lazy loading, une fois toutes les autres ressources prioritaires chargées, pour ne pas impacter l'interactivité de l'application
 
 <img width="1510" alt="Capture d’écran 2022-11-13 à 23 18 37" src="https://user-images.githubusercontent.com/79903008/201547372-6cc1a4f5-b60a-4519-b76c-6a5fc3b01e52.png">
+
+Les bundles de la première page se chargeant très vite, j'ai ensuite choisi de réaliser un requêtage de données côté client (dans un premier temps).
+J'affichais alors des skeletons ciblés sur les zones en attente de données, et des images floutées de faible taille (pour [optimiser mon LCP](https://web.dev/optimize-lcp/?utm_source=lighthouse&utm_medium=devtools#preload-important-resources)) : 
+
+<img width="236" alt="Capture d’écran 2022-11-14 à 22 00 13" src="https://user-images.githubusercontent.com/79903008/201764492-63e5993b-abe2-41a8-96b6-74f057d876ea.png">
 
