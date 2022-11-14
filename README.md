@@ -160,23 +160,34 @@ J'ai ensuite pu en déduire :
 
 ## Performances
 
-Il était important pour moi d'avoir une application la plus rapide possible. Ce qui implique d'avoir un [chemin critique de rendu](https://www.codein.fr/blog/le-chemin-critique-du-rendu-comment-ca-marche-performance-web-3-6) de ma page d'accueil le plus court possible et une navigation fluide.
+Je souhaitais avoir une application la plus rapide possible. Ce qui implique d'avoir un [chemin critique de rendu](https://www.codein.fr/blog/le-chemin-critique-du-rendu-comment-ca-marche-performance-web-3-6) de ma page d'accueil le plus court possible et une navigation fluide.
 
 J'ai choisi Next pour plusieurs raisons : 
-- Le pre-rendering côté serveur de l'HTML initial est automatique
-- Le prefetch de tous les liens de la page courante est automatique
-- Next utilise webpack et gère notamment: 
+- Le [pre-rendering](https://nextjs.org/learn/basics/data-fetching/pre-rendering) côté serveur de l'HTML initial est automatique
+- Le [prefetch](https://web.dev/route-prefetching-in-nextjs/) de tous les liens de la page courante est automatique
+- Next utilise [Webpack](https://webpack.js.org/) et gère notamment: 
   - Le découpage optimisé des bundles
   - Les imports des images, qui sont par défaut lazy loadées
 
+### Chemin critique de rendu et optimisation des bundles
 J'ai dans un premier temps cherché à réduire au maximum la taille des bundles, en évitant le code mort. Des plugins comme [Next Bundle Analyze](https://daily-dev-tips.com/posts/exploring-the-nextjs-bundle-analyzer/), permettent d'avoir une représentation des bundles les plus gourmands, ce qui a permis de : 
 - Privilégier des imports minimalistes quand c'est possible (ex : `import mapValues from ‘lodash/mapValues’` au lieu de `import {mapValues} from ‘lodash’` )
 - Dans le cas contraire, charger les libs volumineuses (ex: framer-motion) en lazy loading, une fois toutes les autres ressources prioritaires chargées, pour ne pas impacter l'interactivité de l'application
 
 <img width="1510" alt="Capture d’écran 2022-11-13 à 23 18 37" src="https://user-images.githubusercontent.com/79903008/201547372-6cc1a4f5-b60a-4519-b76c-6a5fc3b01e52.png">
 
+### Requêtage de données côté client
 Les bundles de la première page se chargeant très vite, j'ai ensuite choisi de réaliser un requêtage de données côté client (dans un premier temps).
 J'affichais alors des skeletons ciblés sur les zones en attente de données, et des images floutées de faible taille (pour [optimiser mon LCP](https://web.dev/optimize-lcp/?utm_source=lighthouse&utm_medium=devtools#preload-important-resources)) : 
 
 <img width="236" alt="Capture d’écran 2022-11-14 à 22 00 13" src="https://user-images.githubusercontent.com/79903008/201764492-63e5993b-abe2-41a8-96b6-74f057d876ea.png">
 
+### Regénération statique incrémentale
+Ensuite, j'ai réalisé qu'il existait d'autres leviers pour accélérer encore le temps de chargement : la [régénération statique incrémentale](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)
+
+En effet, ma page d'accueil requête 3 type de données différentes : 
+- La prochaine recette à venir et durée
+- Un aperçu des évènements en cours
+- Les préférences de l'utilisateur
+
+Comme ces données varient très peu (1 fois par jour à minuit), il est pertinent de faire un fetch unique regénéré quotidiennement. 
