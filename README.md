@@ -191,3 +191,14 @@ En effet, ma page d'accueil requête 3 type de données différentes :
 - Les préférences de l'utilisateur
 
 Comme ces données varient très peu (1 fois par jour à minuit), il est pertinent de faire un fetch unique regénéré quotidiennement. 
+
+### Analyse des performances
+Une fois en production et herbergé, [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=fr) indique les résultats suivants : 
+
+<img width="774" alt="Capture d’écran 2022-11-14 à 23 38 36" src="https://user-images.githubusercontent.com/79903008/201782886-97846a29-dbbc-4c7c-b35f-b754e6518a75.png">
+
+A noter que : 
+- Les performances varient en fonction des disponibilités des ressources de la Raspberry Pi
+- Le score "bonne pratiques" est pénalisé par l'absence de protocole HTTPS
+
+
