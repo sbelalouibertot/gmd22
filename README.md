@@ -193,6 +193,16 @@ En effet, ma page d'accueil requête 3 type de données différentes :
 Comme ces données varient très peu (1 fois par jour), il peut être pertinent de faire un fetch unique regénéré quotidiennement. 
 
 ### Analyse des performances
+En résumé : 
+
+1) Le client (smartphone) requête le serveur (raspberry pi)
+2) Le serveur pré-rend très rapidement l’html et les données de la première page, avec des images floutées
+3) Le CSS se charge de façon non bloquante pour le JS (async)
+4) Le DOM et le CSSOM sont construits
+5) Les bundles JS sont chargés en parallèle par batch
+6) Les images volumineuses sont chargées
+7) Les JS des liens de la première page sont chargés, par batch, tout comme les libs moins prioritaires (citées précédemment)
+
 Une fois en production et herbergé, [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=fr) indique les résultats suivants : 
 
 <img width="774" alt="Capture d’écran 2022-11-14 à 23 38 36" src="https://user-images.githubusercontent.com/79903008/201782886-97846a29-dbbc-4c7c-b35f-b754e6518a75.png">
