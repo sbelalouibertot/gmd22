@@ -190,7 +190,7 @@ En effet, ma page d'accueil requête 3 type de données différentes :
 - Un aperçu des évènements en cours
 - Les préférences de l'utilisateur
 
-Comme ces données varient très peu (1 fois par jour à minuit), il est pertinent de faire un fetch unique regénéré quotidiennement. 
+Comme ces données varient très peu (1 fois par jour), il peut être pertinent de faire un fetch unique regénéré quotidiennement. 
 
 ### Analyse des performances
 Une fois en production et herbergé, [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=fr) indique les résultats suivants : 
