@@ -51,7 +51,7 @@ Une fois toutes les étapes terminées, l'utilisateur découvre sa performance !
 ![Sans titre (10)](https://user-images.githubusercontent.com/79903008/182038738-d6efe6ed-d8b5-451b-abe7-24f04103cada.png)
 
 
-## Mais, c’est une application native ?
+## Mais, c’est une application native ? 📱
 
 Il pourrait être judicieux de développer une application native téléchargeable depuis l’Apple Store, mais par soucis de simplicité (process de validation complexe et chronophage, forte dépendance avec la plateforme, coût) je n'ai pas choisi cette possibilité.
 
@@ -65,7 +65,7 @@ Une fois hébergée, l’application répond à quasiment tous les critères san
 
 <br></br>
 
-## Quel hébergement ?
+## Quel hébergement ? 🏠
 
 Les builds du front et du back sont exécutés sur une [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi), à travers des conteneurs [Docker](https://www.docker.com/). La raspberry pi est ensuite reliée au réseau local et redirigée sur les ports de mon routeur, pour etre accessible n'importe où, sans être connecté en wifi. 
 
@@ -74,7 +74,7 @@ Le déploiement est réalisé via [un script SSH](https://github.com/sbelalouibe
 
 <br></br>
 
-## Quelle solutions techniques ?
+## Quelle solutions techniques ? 🧰
 Les bibliothèques et frameworks utilisés sont axés autour de l’écosystème **Javascript**, et de sa surcouche [Typescript](https://www.typescriptlang.org/). 
 Le but étant :
 - De combler le principal inconvénient de JS : sa trop grande permittivité de typage, qui engendre rapidement des failles et de la dette technique
@@ -103,7 +103,7 @@ Le front et le back étant synchronisés grâce à [Apollo](https://www.apollogr
 
 <br></br>
 
-### Côté scripts :
+### Côté scripts : 
 - Une partie est exécutée sur demande de l’utilisateur (ex: Initialiser la base de données et le profil d’un utilisateur par défaut). Ces scripts sont sortis des sources et ne sont pas buildés.
 
 - D’autres doivent être lancés régulièrement (ex: Générer des recettes et une liste de courses) et sont donc ajoutés aux sources, puis exécutés via [des crons](https://github.com/sbelalouibertot/gmd22-backend/blob/8317c6661e7c35dae2d5796e6e63c42afd2a351a/src/bin/crons.ts).
@@ -125,7 +125,7 @@ En [TDD](https://www.all4test.fr/blog-du-testeur/les-3-cles-pour-maitriser-le-te
 
 <br></br>
 
-## Modèle de données
+## Modèle de données ⚙️
 J'ai commencé par créer une représentation simplifié du modèle de données. 
 
 - Chaque utilisateur dispose de plusieurs préférences (comme par exemple la fréquence de génération des périodes).
@@ -145,7 +145,7 @@ Le modèle de données final généré par Prisma est tel que :
 
 <br></br>
 
-## Maquettage
+## Maquettage 🎨
 
 J'ai également réalisé des maquettes Figma en m'inspirant de templates existants, avant de commencer tout développement.
 
@@ -158,7 +158,7 @@ J'ai ensuite pu en déduire :
 - Les queries & mutations à développer côté back-end
 
 
-## Performances
+## Performances 🚀
 
 Je souhaitais avoir une application la plus rapide possible. Ce qui implique d'avoir un [chemin critique de rendu](https://www.codein.fr/blog/le-chemin-critique-du-rendu-comment-ca-marche-performance-web-3-6) de ma page d'accueil le plus court possible et une navigation fluide.
 
@@ -201,7 +201,7 @@ En résumé :
 4) Le DOM et le CSSOM sont construits
 5) Les bundles JS sont chargés en parallèle par batch
 6) Les images volumineuses sont chargées
-7) Les JS des liens de la première page sont chargés, par batch, tout comme les libs moins prioritaires (citées précédemment)
+7) Les JS des liens de la page sont chargés, par batch, tout comme les libs moins prioritaires (citées précédemment)
 
 Une fois en production et herbergé, [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=fr) indique les résultats suivants : 
 
